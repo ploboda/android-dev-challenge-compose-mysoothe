@@ -27,10 +27,16 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Spa
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -63,15 +69,7 @@ fun HomeScreen() {
                 )
                 .imePadding()
         ) {
-            MyTextField(
-                placeholder = stringResource(R.string.home_search),
-                modifier = Modifier.padding(top = 56.dp, start = spaceMedium, end = spaceMedium)
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_search),
-                    contentDescription = null // decorative element
-                )
-            }
+            SearchField()
             FavSection()
             Section(
                 headerTest = stringResource(R.string.home_body_header),
@@ -86,6 +84,20 @@ fun HomeScreen() {
 }
 
 @Composable
+private fun SearchField() {
+    MyTextField(
+        placeholder = stringResource(R.string.home_search),
+        modifier = Modifier.padding(top = 56.dp, start = spaceMedium, end = spaceMedium)
+    ) {
+        Icon(
+            imageVector = Icons.Filled.Search,
+            contentDescription = null, // decorative element
+            modifier = Modifier.size(18.dp)
+        )
+    }
+}
+
+@Composable
 private fun MyFloatingActionButton() {
     FloatingActionButton(
         shape = CircleShape,
@@ -93,7 +105,7 @@ private fun MyFloatingActionButton() {
         backgroundColor = MaterialTheme.colors.primary
     ) {
         Icon(
-            painter = painterResource(id = R.drawable.ic_play_arrow_24),
+            imageVector = Icons.Filled.PlayArrow,
             contentDescription = null
         )
     }
@@ -104,12 +116,12 @@ private fun MyBottomNavigation() {
     BottomNavigation(backgroundColor = MaterialTheme.colors.background) {
         MyBottomNavigationItem(
             selected = true,
-            iconId = R.drawable.ic_spa,
+            icon = Icons.Filled.Spa,
             text = stringResource(R.string.home_navigation_home)
         )
         MyBottomNavigationItem(
             selected = false,
-            iconId = R.drawable.ic_account_circle,
+            icon = Icons.Filled.AccountCircle,
             text = stringResource(R.string.home_navigation_profile)
         )
     }
@@ -210,14 +222,15 @@ fun RoundItem(data: Item) {
 }
 
 @Composable
-fun RowScope.MyBottomNavigationItem(selected: Boolean, iconId: Int, text: String) {
+fun RowScope.MyBottomNavigationItem(selected: Boolean, icon: ImageVector, text: String) {
     BottomNavigationItem(
         selected = selected,
         onClick = {/*no action*/ },
         icon = {
             Icon(
-                painter = painterResource(id = iconId),
-                contentDescription = null
+                imageVector = icon,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp)
             )
         },
         label = { Text(text, style = MaterialTheme.typography.caption) }
