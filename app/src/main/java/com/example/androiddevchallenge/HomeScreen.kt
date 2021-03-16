@@ -89,7 +89,7 @@ fun HomeScreen() {
 private fun MyFloatingActionButton() {
     FloatingActionButton(
         shape = CircleShape,
-        onClick = { /* doSomething() */ },
+        onClick = { /* no action */ },
         backgroundColor = MaterialTheme.colors.primary
     ) {
         Icon(
