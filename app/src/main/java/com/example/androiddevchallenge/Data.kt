@@ -4,10 +4,10 @@ class Item(val name: String, val image: Int)
 
 val favoriteItemsData = listOf(
     Item(name = "Short mantras", image = R.drawable.i3560168),
-    Item(name = "Nature Meditations", image = R.drawable.i3571551),
     Item(name = "Stress and anxiety", image = R.drawable.i1557238),
-    Item(name = "Self-massage", image = R.drawable.i1029604),
     Item(name = "Overwhelmed", image = R.drawable.i3560044),
+    Item(name = "Nature Meditations", image = R.drawable.i3571551),
+    Item(name = "Self-massage", image = R.drawable.i1029604),
     Item(name = "Nightly wind down", image = R.drawable.i924824)
 )
 

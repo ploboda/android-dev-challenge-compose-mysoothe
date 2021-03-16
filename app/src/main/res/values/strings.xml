@@ -23,4 +23,7 @@
     <string name="home_favorite_collections">FAVORITE COLLECTIONS</string>
     <string name="home_body_header">ALIGN YOUR BODY</string>
     <string name="home_mind_header">ALIGN YOUR MIND</string>
+    <string name="home_navigation_home">HOME</string>
+    <string name="home_navigation_profile">PROFILE</string>
+    <string name="home_search">Search</string>
 </resources>

@@ -12,7 +12,11 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun MyTextField(placeholder: String, modifier: Modifier) {
+fun MyTextField(
+    placeholder: String,
+    modifier: Modifier,
+    leadingIcon: @Composable (() -> Unit)? = null
+) {
     TextField(
         value = "",
         onValueChange = { /*no action*/ },
@@ -23,6 +27,7 @@ fun MyTextField(placeholder: String, modifier: Modifier) {
         textStyle = MaterialTheme.typography.body1,
         colors = TextFieldDefaults.textFieldColors(
             backgroundColor = MaterialTheme.colors.surface
-        )
+        ),
+        leadingIcon = leadingIcon
     )
 }
